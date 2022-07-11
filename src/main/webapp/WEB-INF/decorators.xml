@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators"> <!-- Nơi trỏ về master layout -->
+
+	<!-- Phân chia layout theo url -->
+	<excludes>
+		<pattern>/api**</pattern>
+	</excludes>
+
+	<decorator name="admin" page="admin.jsp"> <!-- Header của admin -->
+		<pattern>/admin**</pattern>
+	</decorator>
+
+	<decorator name="web" page="web.jsp"> <!-- Header của web -->
+		<pattern>/**</pattern>
+	</decorator>
+</decorators>

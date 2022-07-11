@@ -1,0 +1,188 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tonduong</groupId>
+	<artifactId>spring-mvc-block</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<servlet.api.version>3.1.0</servlet.api.version>
+		<springframework.version>4.3.13.RELEASE</springframework.version>
+		<jsp.api.version>2.3.1</jsp.api.version>
+		<jstl.version>1.2</jstl.version>
+		<decorator>2.4.2</decorator>
+		<hibernate.version>4.3.6.Final</hibernate.version>
+		<spring.data>1.11.5.RELEASE</spring.data>
+		<mysql.version>8.0.13</mysql.version>
+		<hibernate.jpa.api>1.0.0.Final</hibernate.jpa.api>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.security>4.2.20.RELEASE</spring.security>
+		<spring.aspects>4.3.13.RELEASE</spring.aspects>
+		<jackson.version>2.13.3</jackson.version>
+		<modelmapper>3.1.0</modelmapper>
+	</properties>
+
+	<dependencies>
+		<!--my-sql-connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- jpa như hibernate -->
+		<!-- ??? Hibernate <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> 
+			<version>${hibernate.version}</version> </dependency> -->
+
+		<!--cung cấp @Annotation -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${hibernate.jpa.api}</version>
+		</dependency>
+
+		<!--Cần để gen database -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<!-- Spring data ??? cung cấp @Annotation -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects 
+			Can cho auditing -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.aspects}</version>
+		</dependency>
+
+
+
+		<!-- Spring <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
+			<version>${springframework.version}</version> </dependency> -->
+
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-web</artifactId> 
+			<version>${springframework.version}</version> </dependency> -->
+
+		<!-- Nhập các request, từ client và sử dụng các anotation như @Controller -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<!-- Chứa anotation config jpa ??? <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-tx</artifactId> <version>${springframework.version}</version> 
+			</dependency> -->
+		<!-- Chứa anotation config và load jpa ??? <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-orm</artifactId> <version>${springframework.version}</version> 
+			</dependency> -->
+
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-context</artifactId> 
+			<version>${springframework.version}</version> </dependency> -->
+		<!-- ??? <dependency> <groupId>org.springframework</groupId> <artifactId>spring-context-support</artifactId> 
+			<version>${springframework.version}</version> </dependency> -->
+
+		<!-- servlet api nhận các request từ client, và sử dụng được <%@ %> trong 
+			jsp -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.api.version}</version>
+		</dependency>
+
+		<!-- jsp api, sử dụng view là jsp -??? <dependency> <groupId>javax.servlet.jsp</groupId> 
+			<artifactId>javax.servlet.jsp-api</artifactId> <version>${jsp.api.version}</version> 
+			</dependency> -->
+
+		<!-- jstl sử dụng tag trong jsp -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+		<!-- Sercurity -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core 
+			<dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-core</artifactId> 
+			<version>${spring.security}</version> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web 
+			Can cho config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config 
+			Can cho config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-acl 
+			<dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-acl</artifactId> 
+			<version>${spring.security}</version> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		<!-- Spring security tablig -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security}</version>
+		</dependency>
+
+		<!-- sitemesh decorator phân chia giao diện -->
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>${decorator}</version>
+		</dependency>
+
+
+		<!-- Jackson nhan json tu client -->
+		<!-- -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+		<!-- Transfer entity to dto and else -->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper}</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+			</plugin>
+		</plugins>
+		<finalName>/</finalName>
+	</build>
+
+</project>

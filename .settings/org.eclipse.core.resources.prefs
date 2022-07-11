@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/tonduong/config/JPAAuditingConfig.java=UTF-8
+encoding//src/main/java/com/tonduong/config/JPAConfig.java=UTF-8
+encoding//src/main/java/com/tonduong/controller/admin/HomeController.java=UTF-8
+encoding//src/main/java/com/tonduong/controller/admin/NewController.java=UTF-8
+encoding//src/main/java/com/tonduong/controller/web/HomeController.java=UTF-8
+encoding//src/main/java/com/tonduong/controller/web/NewController.java=UTF-8
+encoding//src/main/java/com/tonduong/entity/BaseEntity.java=UTF-8
+encoding//src/main/java/com/tonduong/repository/NewReponsitory.java=UTF-8
